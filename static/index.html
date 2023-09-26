@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="/Users/macbookpro/WebstormProjects/Creating-Software-2/static/style.css">
+</head>
+<body>
+<h1>Calculator</h1>
+
+<form method="post" action="/calculate">
+    <label for="x">Num #1:</label>
+    <input type="number" id="first_numb" name="x" required>
+
+    <label for="y">Num #2:</label>
+    <input type="number" id="second_numb" name="y" required>
+
+    <br>
+
+    <label for="operation">Operation:</label>
+    <select name="operation" id="operation_sel">
+        <option value="add">Add</option>
+        <option value="subtract">Subtract</option>
+        <option value="multiply">Multiply</option>
+        <option value="divide">Divide</option>
+    </select>
+
+    <br><br>
+</form>
+<button onclick="calc()" type="button">calculate</button>
+</body>
+<script>
+    let calc = () => {
+        let operation = document.getElementById("operation_sel").value
+        let fv = document.getElementById("first_numb").value
+        let sv = document.getElementById("second_numb").value
+        if (Number(fv) && Number(sv) && operation) {
+            let res
+            switch (operation) {
+                case "add":
+                    res = Number(fv) + Number(sv)
+                    break
+                case "subtract":
+                    res = Number(fv) - Number(sv)
+                    break
+                case "multiply":
+                    res = Number(fv) * Number(sv)
+                    break
+                case "divide":
+                    res = Number(fv) / Number(sv)
+            }
+            alert(`Результат ${res}`)
+        }
+        else {
+            alert("неверные данные")
+        }
+    }
+</script>
+</html>
+
